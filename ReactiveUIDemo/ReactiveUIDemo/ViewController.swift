@@ -16,8 +16,7 @@ class ViewController: UITableViewController {
                 
         title = "ReactiveUI Demo"
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Action,  target: self, action: Selector("doneButtonAction:"))
-        navigationItem.rightBarButtonItem?.addAction({_ in
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Action) {_ in
             let alertController = UIAlertController(title: "ActionSheet", message: "You just tapped rightBarButtonItem.", preferredStyle: .ActionSheet)
             
             let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in}
@@ -27,10 +26,9 @@ class ViewController: UITableViewController {
             alertController.addAction(OKAction)
             
             self.presentViewController(alertController, animated: true, completion: nil)
-        })
+        }
         
-        var refreshControl = UIRefreshControl()
-        refreshControl.addAction({ r in
+        var refreshControl = UIRefreshControl(forControlEvents: .ValueChanged) { r in
             let r = r as UIRefreshControl
             let alertController = UIAlertController(title: "Alert", message: "You just pulled refreshControl.", preferredStyle: .Alert)
             
@@ -45,7 +43,7 @@ class ViewController: UITableViewController {
             alertController.addAction(OKAction)
             
             self.presentViewController(alertController, animated: true, completion: nil)
-        }, forControlEvents: .ValueChanged)
+        }
         tableView.addSubview(refreshControl)
     }
 

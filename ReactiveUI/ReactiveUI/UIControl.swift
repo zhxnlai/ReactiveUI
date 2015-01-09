@@ -10,19 +10,37 @@ import UIKit
 
 public extension UIControl {
     
+    convenience init(action: UIControl -> (), forControlEvents events: UIControlEvents) {
+        self.init()
+        addAction(action, forControlEvents: events)
+    }
+
+    convenience init(forControlEvents events: UIControlEvents, action: UIControl -> ()) {
+        self.init()
+        addAction(action, forControlEvents: events)
+    }
+    
     func addAction(action: UIControl -> (), forControlEvents events: UIControlEvents) {
-        removeAction(events)
+        removeAction(forControlEvents: events)
 
         let proxyTarget = RUIControlProxyTarget(action)
         proxyTargets[keyForEvents(events)] = proxyTarget
         addTarget(proxyTarget, action: RUIControlProxyTarget.actionSelector(), forControlEvents: events)
     }
     
-    func removeAction(events: UIControlEvents) {
+    func forControlEvents(events: UIControlEvents, addAction action: UIControl -> ()) {
+        addAction(action, forControlEvents: events)
+    }
+
+    func removeAction(forControlEvents events: UIControlEvents) {
         if let proxyTarget = proxyTargets[keyForEvents(events)] {
             removeTarget(proxyTarget, action: RUIControlProxyTarget.actionSelector(), forControlEvents: events)
             proxyTargets.removeValueForKey(keyForEvents(events))
         }
+    }
+    
+    func actionForControlEvent(events: UIControlEvents) -> (UIControl -> ())? {
+        return proxyTargets[keyForEvents(events)]?.action
     }
     
     var actions: [UIControl -> ()] {
