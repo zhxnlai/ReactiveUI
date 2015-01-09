@@ -40,7 +40,7 @@ Usage
 ---
 Checkout the [demo app](https://github.com/zhxnlai/ReactiveUI/tree/master/ReactiveUIDemo) for an example.
 
-[<img width="320 px" src="Previews/screenshot.png"/>]((https://github.com/zhxnlai/ReactiveUI/tree/master/ReactiveUIDemo)
+[<img width="320 px" src="Previews/screenshot.png"/>](https://github.com/zhxnlai/ReactiveUI/tree/master/ReactiveUIDemo)
 
 ReactiveUI currently supports UIControl, UIBarButtonItem and UIGestureRecognizer.
 
