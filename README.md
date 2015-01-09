@@ -4,7 +4,7 @@ A lightweight replacement for target action with closures, modified from [Scream
 Why?
 ---
 
-In UIKit, [Target-Action](https://developer.apple.com/library/ios/documentation/General/Conceptual/CocoaEncyclopedia/Target-Action/Target-Action.html) has been the default way to handle control events until the arrival of iOS 8 where [UIAlertController](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIAlertController_class/) introduces closure handler in [UIAlertAction](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIAlertAction_Class/index.html#//apple_ref/swift/cl/UIAlertAction).
+In UIKit, [Target-Action](https://developer.apple.com/library/ios/documentation/General/Conceptual/CocoaEncyclopedia/Target-Action/Target-Action.html) has been the default way to handle control events until the arrival of iOS 8 when [UIAlertController](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIAlertController_class/) introduces closure handler in [UIAlertAction](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIAlertAction_Class/index.html#//apple_ref/swift/cl/UIAlertAction).
 
 Closure handlers, in many cases, are more concise and readable than Target-Action. ReactiveUI follows this approach, wrapping existing Target-Action APIs
 ~~~swift
@@ -23,7 +23,7 @@ func addAction(action: UIControl -> (), forControlEvents events: UIControlEvents
 init(action: UIGestureRecognizer -> ()) {
 ~~~
 
-With ReactiveUI, control events handling is now much simpler:
+With ReactiveUI, control events handling is much simpler:
 ~~~swift
 var button = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 30))
 button.setTitle("Title", forState: .Normal)
