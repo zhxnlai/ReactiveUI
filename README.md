@@ -14,7 +14,7 @@ func addTarget(_ target: AnyObject?, action action: Selector, forControlEvents c
 // UIGestureRecognizer
 init(target target: AnyObject, action action: Selector)
 
-...
+// ...
 ~~~
 in closures
 ~~~swift
@@ -24,7 +24,7 @@ func addAction(action: UIControl -> (), forControlEvents events: UIControlEvents
 // UIGestureRecognizer
 init(action: UIGestureRecognizer -> ())
 
-...
+// ...
 ~~~
 
 With ReactiveUI, control events handling is much simpler:
@@ -39,6 +39,8 @@ button.addAction({_ in println("TouchDragOutside")}, forControlEvents: .TouchDra
 Usage
 ---
 Checkout the [demo app](https://github.com/zhxnlai/ReactiveUI/tree/master/ReactiveUIDemo) for an example.
+
+[<img width="320 px" src="Previews/screenshot.png"/>]((https://github.com/zhxnlai/ReactiveUI/tree/master/ReactiveUIDemo)
 
 ReactiveUI currently supports UIControl, UIBarButtonItem and UIGestureRecognizer.
 
