@@ -13,6 +13,8 @@ func addTarget(_ target: AnyObject?, action action: Selector, forControlEvents c
 
 // UIGestureRecognizer
 init(target target: AnyObject, action action: Selector)
+
+...
 ~~~
 in closures
 ~~~swift
@@ -20,7 +22,9 @@ in closures
 func addAction(action: UIControl -> (), forControlEvents events: UIControlEvents)
 
 // UIGestureRecognizer
-init(action: UIGestureRecognizer -> ()) {
+init(action: UIGestureRecognizer -> ())
+
+...
 ~~~
 
 With ReactiveUI, control events handling is much simpler:
@@ -40,17 +44,27 @@ ReactiveUI currently supports UIControl, UIBarButtonItem and UIGestureRecognizer
 
 ###UIControl
 ~~~swift
+init(action: UIControl -> (), forControlEvents events: UIControlEvents)
+init(forControlEvents events: UIControlEvents, action: UIControl -> ())
 func addAction(action: UIControl -> (), forControlEvents events: UIControlEvents)
-func removeAction(events: UIControlEvents)
+// can be called with a trailing closure
+func forControlEvents(events: UIControlEvents, addAction action: UIControl -> ())
+func removeAction(forControlEvents events: UIControlEvents)
+func actionForControlEvent(events: UIControlEvents) -> (UIControl -> ())?
 var actions: [UIControl -> ()]
 ~~~
 ###UIBarButtonItem
 ~~~swift
+init(barButtonSystemItem systemItem: UIBarButtonSystemItem, action: UIBarButtonItem -> ())
+init(title: String?, style: UIBarButtonItemStyle, action: UIBarButtonItem -> ())
+init(image: UIImage?, style: UIBarButtonItemStyle, action: UIBarButtonItem -> ())
+init(image: UIImage?, landscapeImagePhone: UIImage?, style: UIBarButtonItemStyle, action: UIBarButtonItem -> ())
 func addAction(action: UIBarButtonItem -> ())
 func removeAction()
 ~~~
 ###UIGestureRecognizer
 ~~~swift
+init(action: UIGestureRecognizer -> ())
 func addAction(action: UIGestureRecognizer -> ())
 func removeAction()
 ~~~
