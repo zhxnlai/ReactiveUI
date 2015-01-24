@@ -36,6 +36,20 @@ button.addAction({_ in println("TouchUpInside")}, forControlEvents: .TouchUpInsi
 button.addAction({_ in println("TouchDragOutside")}, forControlEvents: .TouchDragOutside)
 ~~~
 
+CocoaPods
+---
+You can install `ReactiveUI` through CocoaPods adding the following to your Podfile:
+
+~~~ruby
+pod 'ReactiveUI'
+~~~
+
+CocoaPods' support for swift is still pre-released, and requires your iOS deployment target to be [8.0 or later](https://github.com/CocoaPods/swift):
+```bash
+[sudo] gem install cocoapods --pre
+```
+
+
 Usage
 ---
 Checkout the [demo app](https://github.com/zhxnlai/ReactiveUI/tree/master/ReactiveUIDemo) for an example.
