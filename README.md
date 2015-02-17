@@ -56,7 +56,7 @@ Checkout the [demo app](https://github.com/zhxnlai/ReactiveUI/tree/master/Reacti
 
 [<img width="320 px" src="Previews/screenshot.png"/>](https://github.com/zhxnlai/ReactiveUI/tree/master/ReactiveUIDemo)
 
-ReactiveUI currently supports UIControl, UIBarButtonItem and UIGestureRecognizer.
+ReactiveUI currently supports the following classes:
 
 ###UIControl
 ~~~swift
@@ -83,6 +83,10 @@ func removeAction()
 init(action: UIGestureRecognizer -> ())
 func addAction(action: UIGestureRecognizer -> ())
 func removeAction()
+~~~
+###NSTimer
+~~~swift
+class func scheduledTimerWithTimeInterval(seconds: NSTimeInterval, action: NSTimer -> (), repeats: Bool) -> NSTimer
 ~~~
 
 License
