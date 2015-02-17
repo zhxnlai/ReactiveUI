@@ -16,6 +16,21 @@ class ViewController: UITableViewController {
                 
         title = "ReactiveUI Demo"
         
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Timer", style: .Plain) { _ in
+            NSTimer.scheduledTimerWithTimeInterval(1, action: {timer in
+                let alertController = UIAlertController(title: "Alert", message: "Time's up!", preferredStyle: .Alert)
+                
+                let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in}
+                alertController.addAction(cancelAction)
+                
+                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in}
+                alertController.addAction(OKAction)
+                
+                self.presentViewController(alertController, animated: true, completion: nil)
+            }, repeats: false)
+            return
+        }
+
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Action) {_ in
             let alertController = UIAlertController(title: "ActionSheet", message: "You just tapped rightBarButtonItem.", preferredStyle: .ActionSheet)
             
