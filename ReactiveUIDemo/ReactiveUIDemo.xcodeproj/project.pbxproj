@@ -13,8 +13,8 @@
 		090C4BB21A5FCFE90001D555 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 090C4BB01A5FCFE90001D555 /* LaunchScreen.xib */; };
 		090C4BBE1A5FCFE90001D555 /* ReactiveUIDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090C4BBD1A5FCFE90001D555 /* ReactiveUIDemoTests.swift */; };
 		090C4BDB1A5FD2370001D555 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090C4BDA1A5FD2370001D555 /* ViewController.swift */; };
-		090C4BDF1A5FD3760001D555 /* ReactiveUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 090C4BDE1A5FD3760001D555 /* ReactiveUI.framework */; };
-		090C4BE01A5FD3760001D555 /* ReactiveUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 090C4BDE1A5FD3760001D555 /* ReactiveUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		093FA6B31AF5530500F3C343 /* ReactiveUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 090C4BDE1A5FD3760001D555 /* ReactiveUI.framework */; };
+		093FA6B41AF5530500F3C343 /* ReactiveUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 090C4BDE1A5FD3760001D555 /* ReactiveUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,13 +28,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		090C4BE11A5FD3760001D555 /* Embed Frameworks */ = {
+		093FA6B51AF5530500F3C343 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				090C4BE01A5FD3760001D555 /* ReactiveUI.framework in Embed Frameworks */,
+				093FA6B41AF5530500F3C343 /* ReactiveUI.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -60,7 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				090C4BDF1A5FD3760001D555 /* ReactiveUI.framework in Frameworks */,
+				093FA6B31AF5530500F3C343 /* ReactiveUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,7 +149,7 @@
 				090C4B9E1A5FCFE90001D555 /* Sources */,
 				090C4B9F1A5FCFE90001D555 /* Frameworks */,
 				090C4BA01A5FCFE90001D555 /* Resources */,
-				090C4BE11A5FD3760001D555 /* Embed Frameworks */,
+				093FA6B51AF5530500F3C343 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

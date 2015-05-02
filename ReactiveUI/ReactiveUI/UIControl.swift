@@ -23,7 +23,7 @@ public extension UIControl {
     func addAction(action: UIControl -> (), forControlEvents events: UIControlEvents) {
         removeAction(forControlEvents: events)
 
-        let proxyTarget = RUIControlProxyTarget(action)
+        let proxyTarget = RUIControlProxyTarget(action: action)
         proxyTargets[keyForEvents(events)] = proxyTarget
         addTarget(proxyTarget, action: RUIControlProxyTarget.actionSelector(), forControlEvents: events)
     }

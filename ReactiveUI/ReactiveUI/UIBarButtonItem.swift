@@ -14,7 +14,7 @@ public extension UIBarButtonItem {
         self.init(barButtonSystemItem: systemItem, target: nil, action: Selector())
         addAction(action)
     }
-
+    
     convenience init(title: String?, style: UIBarButtonItemStyle, action: UIBarButtonItem -> ()) {
         self.init(title: title, style: style, target: nil, action: Selector())
         addAction(action)
@@ -24,16 +24,16 @@ public extension UIBarButtonItem {
         self.init(image: image, style: style, target: nil, action: Selector())
         addAction(action)
     }
-
+    
     convenience init(image: UIImage?, landscapeImagePhone: UIImage?, style: UIBarButtonItemStyle, action: UIBarButtonItem -> ()) {
         self.init(image: image, landscapeImagePhone: landscapeImagePhone, style: style, target: nil, action: Selector())
         addAction(action)
     }
-
+    
     func addAction(action: UIBarButtonItem -> ()) {
         removeAction()
         
-        proxyTarget = RUIBarButtonItemProxyTarget(action)
+        proxyTarget = RUIBarButtonItemProxyTarget(action: action)
         target = proxyTarget
         self.action = RUIBarButtonItemProxyTarget.actionSelector()
     }
@@ -66,7 +66,7 @@ internal extension UIBarButtonItem {
             if let targets = objc_getAssociatedObject(self, &RUIProxyTargetsKey) as? RUIBarButtonItemProxyTarget {
                 return targets
             } else {
-                return setProxyTargets(RUIBarButtonItemProxyTarget({_ in}))
+                return setProxyTargets(RUIBarButtonItemProxyTarget(action: {_ in}))
             }
         }
         set {

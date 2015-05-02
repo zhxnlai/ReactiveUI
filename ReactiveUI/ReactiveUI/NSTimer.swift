@@ -12,7 +12,7 @@ public extension NSTimer {
     
     // Big thanks to https://github.com/ashfurrow/Haste
     class func scheduledTimerWithTimeInterval(seconds: NSTimeInterval, action: NSTimer -> (), repeats: Bool) -> NSTimer {
-        return scheduledTimerWithTimeInterval(seconds, target: self, selector: "_timerDidFire:", userInfo: RUITimerProxyTarget(action), repeats: repeats)
+        return scheduledTimerWithTimeInterval(seconds, target: self, selector: "_timerDidFire:", userInfo: RUITimerProxyTarget(action: action), repeats: repeats)
     }
     
 }
@@ -44,7 +44,7 @@ internal extension NSTimer {
             if let targets = objc_getAssociatedObject(self, &RUIProxyTargetsKey) as? RUITimerProxyTarget {
                 return targets
             } else {
-                return setProxyTargets(RUITimerProxyTarget({_ in}))
+                return setProxyTargets(RUITimerProxyTarget(action: {_ in}))
             }
         }
         set {

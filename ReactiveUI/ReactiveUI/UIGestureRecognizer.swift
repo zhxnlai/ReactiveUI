@@ -18,7 +18,7 @@ public extension UIGestureRecognizer {
     func addAction(action: UIGestureRecognizer -> ()) {
         removeAction()
         
-        proxyTarget = RUIGestureRecognizerProxyTarget(action)
+        proxyTarget = RUIGestureRecognizerProxyTarget(action: action)
         addTarget(proxyTarget, action: RUIGestureRecognizerProxyTarget.actionSelector())
     }
     
@@ -49,7 +49,7 @@ internal extension UIGestureRecognizer {
             if let targets = objc_getAssociatedObject(self, &RUIProxyTargetsKey) as? RUIGestureRecognizerProxyTarget {
                 return targets
             } else {
-                return setProxyTargets(RUIGestureRecognizerProxyTarget({_ in}))
+                return setProxyTargets(RUIGestureRecognizerProxyTarget(action: {_ in}))
             }
         }
         set {

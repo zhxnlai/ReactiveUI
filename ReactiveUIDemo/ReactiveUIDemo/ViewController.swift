@@ -44,7 +44,7 @@ class ViewController: UITableViewController {
         }
         
         var refreshControl = UIRefreshControl(forControlEvents: .ValueChanged) { r in
-            let r = r as UIRefreshControl
+            let r = r as! UIRefreshControl
             let alertController = UIAlertController(title: "Alert", message: "You just pulled refreshControl.", preferredStyle: .Alert)
             
             let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
@@ -167,43 +167,43 @@ class ViewController: UITableViewController {
                 acc.setTitle("Hit", forState: .Normal)
                 acc.setTitleColor(view.tintColor, forState: .Normal)
                 acc.addAction({control in
-                    let c = control as UIButton
+                    let c = control as! UIButton
                     self.controlSectionDetailLabels[indexPath.row]?.text = "TouchDown"},
                     forControlEvents: .TouchDown)
                 acc.addAction({control in
-                    let c = control as UIButton
+                    let c = control as! UIButton
                     self.controlSectionDetailLabels[indexPath.row]?.text = "TouchUpInside"},
                     forControlEvents: .TouchUpInside)
                 acc.addAction({control in
-                    let c = control as UIButton
+                    let c = control as! UIButton
                     self.controlSectionDetailLabels[indexPath.row]?.text = "TouchDragOutside"},
                     forControlEvents: .TouchDragOutside)
                 cell.accessoryView = acc
             case .UISwitch:
                 var acc = UISwitch()
                 acc.addAction({control in
-                    let c = control as UISwitch
+                    let c = control as! UISwitch
                     self.controlSectionDetailLabels[indexPath.row]?.text = "\(c.on)"},
                     forControlEvents: .ValueChanged)
                 cell.accessoryView = acc
             case .UISlider:
                 var acc = UISlider()
                 acc.addAction({control in
-                    let c = control as UISlider
+                    let c = control as! UISlider
                     self.controlSectionDetailLabels[indexPath.row]?.text = "\(c.value)"},
                     forControlEvents: .ValueChanged)
                 cell.accessoryView = acc
             case .UISegmentedControl:
                 var acc = UISegmentedControl(items: ["Zero","One"])
                 acc.addAction({control in
-                    let c = control as UISegmentedControl
+                    let c = control as! UISegmentedControl
                     self.controlSectionDetailLabels[indexPath.row]?.text = "\(c.selectedSegmentIndex)"},
                     forControlEvents: .ValueChanged)
                 cell.accessoryView = acc
             case .UIStepper:
                 var acc = UIStepper()
                 acc.addAction({control in
-                    let c = control as UIStepper
+                    let c = control as! UIStepper
                     self.controlSectionDetailLabels[indexPath.row]?.text = "\(c.value)"},
                     forControlEvents: .ValueChanged)
                 cell.accessoryView = acc
@@ -217,7 +217,7 @@ class ViewController: UITableViewController {
 
                 var acc = UIDatePicker(frame: CGRect(x: 0, y: labelHeight, width: view.frame.width, height: row.height))
                 acc.addAction({control in
-                    let c = control as UIDatePicker
+                    let c = control as! UIDatePicker
                     self.controlSectionDetailLabels[indexPath.row]?.text = "\(c.date)"},
                     forControlEvents: .ValueChanged)
                 cell.addSubview(acc)
