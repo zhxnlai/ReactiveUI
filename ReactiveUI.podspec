@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ReactiveUI"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "A lightweight replacement for target action with closures, modified from Scream.swift."
   s.homepage     = "https://github.com/zhxnlai/ReactiveUI"
   s.screenshots  = "https://github.com/zhxnlai/ReactiveUI/raw/master/Previews/screenshot.png"
@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '8.0'
 
-  s.source       = { :git => "https://github.com/zhxnlai/ReactiveUI.git", :tag => "0.0.1" }
+  s.source       = { :git => "https://github.com/zhxnlai/ReactiveUI.git", :tag => "0.0.2" }
   s.source_files = 'ReactiveUI/ReactiveUI/*.swift'
 
   s.framework  = "UIKit"
