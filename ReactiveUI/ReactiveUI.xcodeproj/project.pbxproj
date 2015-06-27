@@ -173,6 +173,7 @@
 		090C4B741A5FCFCF0001D555 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Zhixuan Lai";
 				TargetAttributes = {
