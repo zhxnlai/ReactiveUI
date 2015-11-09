@@ -43,7 +43,7 @@ class ViewController: UITableViewController {
             self.presentViewController(alertController, animated: true, completion: nil)
         }
         
-        var refreshControl = UIRefreshControl(forControlEvents: .ValueChanged) { r in
+        let refreshControl = UIRefreshControl(forControlEvents: .ValueChanged) { r in
             let r = r as! UIRefreshControl
             let alertController = UIAlertController(title: "Alert", message: "You just pulled refreshControl.", preferredStyle: .Alert)
             
@@ -149,8 +149,8 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cellIdentifier = String(format: "s%li-r%li", indexPath.section, indexPath.row)
-        var cell:UITableViewCell! = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? UITableViewCell
+        let cellIdentifier = String(format: "s%li-r%li", indexPath.section, indexPath.row)
+        var cell:UITableViewCell! = tableView.dequeueReusableCellWithIdentifier(cellIdentifier)
         if cell==nil {
             cell = UITableViewCell(style: .Value1, reuseIdentifier: cellIdentifier)
         }
@@ -163,45 +163,42 @@ class ViewController: UITableViewController {
             controlSectionDetailLabels[indexPath.row] = cell.detailTextLabel
             switch row {
             case .UIButton:
-                var acc = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 30))
+                let acc = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 30))
                 acc.setTitle("Hit", forState: .Normal)
                 acc.setTitleColor(view.tintColor, forState: .Normal)
                 acc.addAction({control in
-                    let c = control as! UIButton
                     self.controlSectionDetailLabels[indexPath.row]?.text = "TouchDown"},
                     forControlEvents: .TouchDown)
                 acc.addAction({control in
-                    let c = control as! UIButton
                     self.controlSectionDetailLabels[indexPath.row]?.text = "TouchUpInside"},
                     forControlEvents: .TouchUpInside)
                 acc.addAction({control in
-                    let c = control as! UIButton
                     self.controlSectionDetailLabels[indexPath.row]?.text = "TouchDragOutside"},
                     forControlEvents: .TouchDragOutside)
                 cell.accessoryView = acc
             case .UISwitch:
-                var acc = UISwitch()
+                let acc = UISwitch()
                 acc.addAction({control in
                     let c = control as! UISwitch
                     self.controlSectionDetailLabels[indexPath.row]?.text = "\(c.on)"},
                     forControlEvents: .ValueChanged)
                 cell.accessoryView = acc
             case .UISlider:
-                var acc = UISlider()
+                let acc = UISlider()
                 acc.addAction({control in
                     let c = control as! UISlider
                     self.controlSectionDetailLabels[indexPath.row]?.text = "\(c.value)"},
                     forControlEvents: .ValueChanged)
                 cell.accessoryView = acc
             case .UISegmentedControl:
-                var acc = UISegmentedControl(items: ["Zero","One"])
+                let acc = UISegmentedControl(items: ["Zero","One"])
                 acc.addAction({control in
                     let c = control as! UISegmentedControl
                     self.controlSectionDetailLabels[indexPath.row]?.text = "\(c.selectedSegmentIndex)"},
                     forControlEvents: .ValueChanged)
                 cell.accessoryView = acc
             case .UIStepper:
-                var acc = UIStepper()
+                let acc = UIStepper()
                 acc.addAction({control in
                     let c = control as! UIStepper
                     self.controlSectionDetailLabels[indexPath.row]?.text = "\(c.value)"},
@@ -209,13 +206,13 @@ class ViewController: UITableViewController {
                 cell.accessoryView = acc
             case .UIDatePicker:
                 let labelHeight = CGFloat(20)
-                var label = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: labelHeight))
+                let label = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: labelHeight))
                 label.textColor = UIColor.grayColor()
                 label.textAlignment = .Center
                 cell.addSubview(label)
                 controlSectionDetailLabels[indexPath.row] = label
 
-                var acc = UIDatePicker(frame: CGRect(x: 0, y: labelHeight, width: view.frame.width, height: row.height))
+                let acc = UIDatePicker(frame: CGRect(x: 0, y: labelHeight, width: view.frame.width, height: row.height))
                 acc.addAction({control in
                     let c = control as! UIDatePicker
                     self.controlSectionDetailLabels[indexPath.row]?.text = "\(c.date)"},
@@ -230,25 +227,25 @@ class ViewController: UITableViewController {
             gestureRecognizerSectionDetailLabels[indexPath.row] = cell.detailTextLabel
             switch row {
             case .UILongPressGestureRecognizer:
-                var gr = UILongPressGestureRecognizer()
+                let gr = UILongPressGestureRecognizer()
                 gr.addAction({gr in
                     let text = "\(gr.locationInView(gr.view))"
                     self.gestureRecognizerSectionDetailLabels[indexPath.row]?.text = text })
                 cell.addGestureRecognizer(gr)
             case .UIPanGestureRecognizer:
-                var gr = UIPanGestureRecognizer()
+                let gr = UIPanGestureRecognizer()
                 gr.addAction({gr in
                     let text = "\(gr.locationInView(gr.view))"
                     self.gestureRecognizerSectionDetailLabels[indexPath.row]?.text = text })
                 cell.addGestureRecognizer(gr)
             case .UIPinchGestureRecognizer:
-                var gr = UIPinchGestureRecognizer()
+                let gr = UIPinchGestureRecognizer()
                 gr.addAction({gr in
                     let text = "\(gr.locationInView(gr.view))"
                     self.gestureRecognizerSectionDetailLabels[indexPath.row]?.text = text })
                 cell.addGestureRecognizer(gr)
             case .UITapGestureRecognizer:
-                var gr = UITapGestureRecognizer()
+                let gr = UITapGestureRecognizer()
                 gr.addAction({gr in
                     let text = "\(gr.locationInView(gr.view))"
                     self.gestureRecognizerSectionDetailLabels[indexPath.row]?.text = text })
