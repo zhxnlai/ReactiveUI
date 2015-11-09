@@ -13,8 +13,7 @@
 		090C4BB21A5FCFE90001D555 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 090C4BB01A5FCFE90001D555 /* LaunchScreen.xib */; };
 		090C4BBE1A5FCFE90001D555 /* ReactiveUIDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090C4BBD1A5FCFE90001D555 /* ReactiveUIDemoTests.swift */; };
 		090C4BDB1A5FD2370001D555 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090C4BDA1A5FD2370001D555 /* ViewController.swift */; };
-		093FA6B31AF5530500F3C343 /* ReactiveUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 090C4BDE1A5FD3760001D555 /* ReactiveUI.framework */; };
-		093FA6B41AF5530500F3C343 /* ReactiveUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 090C4BDE1A5FD3760001D555 /* ReactiveUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0970AE521BF141D300D68D68 /* ReactiveUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0970AE511BF141D300D68D68 /* ReactiveUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,20 +26,6 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		093FA6B51AF5530500F3C343 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				093FA6B41AF5530500F3C343 /* ReactiveUI.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		090C4BA21A5FCFE90001D555 /* ReactiveUIDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactiveUIDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		090C4BA61A5FCFE90001D555 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -52,7 +37,7 @@
 		090C4BBC1A5FCFE90001D555 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		090C4BBD1A5FCFE90001D555 /* ReactiveUIDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveUIDemoTests.swift; sourceTree = "<group>"; };
 		090C4BDA1A5FD2370001D555 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		090C4BDE1A5FD3760001D555 /* ReactiveUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = ReactiveUI.framework; path = "/Users/zhixuanlai/Library/Developer/Xcode/DerivedData/ReactiveUIDemo-cybjcdimawpnkjdedljuilonjypv/Build/Products/Debug-iphoneos/ReactiveUI.framework"; sourceTree = "<absolute>"; };
+		0970AE511BF141D300D68D68 /* ReactiveUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveUI.framework; path = "../ReactiveUI/build/Debug-iphoneos/ReactiveUI.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				093FA6B31AF5530500F3C343 /* ReactiveUI.framework in Frameworks */,
+				0970AE521BF141D300D68D68 /* ReactiveUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,7 +119,7 @@
 		090C4BE21A5FD3890001D555 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				090C4BDE1A5FD3760001D555 /* ReactiveUI.framework */,
+				0970AE511BF141D300D68D68 /* ReactiveUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -149,7 +134,6 @@
 				090C4B9E1A5FCFE90001D555 /* Sources */,
 				090C4B9F1A5FCFE90001D555 /* Frameworks */,
 				090C4BA01A5FCFE90001D555 /* Resources */,
-				093FA6B51AF5530500F3C343 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -185,7 +169,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Zhixuan Lai";
 				TargetAttributes = {
 					090C4BA11A5FCFE90001D555 = {
@@ -304,6 +288,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -372,6 +357,7 @@
 				);
 				INFOPLIST_FILE = ReactiveUIDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.axcel.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -387,6 +373,7 @@
 				);
 				INFOPLIST_FILE = ReactiveUIDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.axcel.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -405,6 +392,7 @@
 				);
 				INFOPLIST_FILE = ReactiveUIDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.axcel.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReactiveUIDemo.app/ReactiveUIDemo";
 			};
@@ -420,6 +408,7 @@
 				);
 				INFOPLIST_FILE = ReactiveUIDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.axcel.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReactiveUIDemo.app/ReactiveUIDemo";
 			};
