@@ -49,6 +49,13 @@ CocoaPods' support for swift is still pre-released, and requires your iOS deploy
 [sudo] gem install cocoapods --pre
 ```
 
+Carthage
+---
+You can install `ReactiveUI` through Carthage adding the following to your Cartfile:
+
+~~~
+github 'zhxnlai/ReactiveUI'
+~~~
 
 Usage
 ---
