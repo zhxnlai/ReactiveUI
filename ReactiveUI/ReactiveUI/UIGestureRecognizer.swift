@@ -10,12 +10,12 @@ import UIKit
 
 public extension UIGestureRecognizer {
     
-    convenience init(action: UIGestureRecognizer -> ()) {
+    convenience init(action: @escaping (UIGestureRecognizer) -> ()) {
         self.init()
         addAction(action)
     }
     
-    func addAction(action: UIGestureRecognizer -> ()) {
+    func addAction(_ action: @escaping (UIGestureRecognizer) -> ()) {
         removeAction()
         
         proxyTarget = RUIGestureRecognizerProxyTarget(action: action)
@@ -33,13 +33,13 @@ internal extension UIGestureRecognizer {
     typealias RUIGestureRecognizerProxyTargets = [String: RUIGestureRecognizerProxyTarget]
     
     class RUIGestureRecognizerProxyTarget : RUIProxyTarget {
-        var action: UIGestureRecognizer -> ()
+        var action: (UIGestureRecognizer) -> ()
         
-        init(action: UIGestureRecognizer -> ()) {
+        init(action: @escaping (UIGestureRecognizer) -> ()) {
             self.action = action
         }
         
-        func performAction(control: UIGestureRecognizer) {
+        func performAction(_ control: UIGestureRecognizer) {
             action(control)
         }
     }
@@ -57,7 +57,7 @@ internal extension UIGestureRecognizer {
         }
     }
     
-    private func setProxyTargets(newValue: RUIGestureRecognizerProxyTarget) -> RUIGestureRecognizerProxyTarget {
+    private func setProxyTargets(_ newValue: RUIGestureRecognizerProxyTarget) -> RUIGestureRecognizerProxyTarget {
         objc_setAssociatedObject(self, &RUIProxyTargetsKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         return newValue
     }

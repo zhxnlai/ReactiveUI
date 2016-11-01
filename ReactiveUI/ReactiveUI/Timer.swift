@@ -1,5 +1,5 @@
 //
-//  NSTimer.swift
+//  Timer.swift
 //  ReactiveUI
 //
 //  Created by Zhixuan Lai on 2/2/15.
@@ -8,18 +8,16 @@
 
 import UIKit
 
-public extension NSTimer {
-    
+public extension Timer {
     // Big thanks to https://github.com/ashfurrow/Haste
-    class func scheduledTimerWithTimeInterval(seconds: NSTimeInterval, action: NSTimer -> (), repeats: Bool) -> NSTimer {
-        return scheduledTimerWithTimeInterval(seconds, target: self, selector: "_timerDidFire:", userInfo: RUITimerProxyTarget(action: action), repeats: repeats)
+    class func scheduledTimerWithTimeInterval(seconds: TimeInterval, action: @escaping (Timer) -> (), repeats: Bool) -> Timer {
+        return scheduledTimer(timeInterval: seconds, target: self, selector: "_timerDidFire:", userInfo: RUITimerProxyTarget(action: action), repeats: repeats)
     }
-    
 }
 
-internal extension NSTimer {
+internal extension Timer {
     
-    class func _timerDidFire(timer: NSTimer) {
+    class func _timerDidFire(timer: Timer) {
         if let proxyTarget = timer.userInfo as? RUITimerProxyTarget {
             proxyTarget.performAction(timer)
         }
@@ -28,13 +26,13 @@ internal extension NSTimer {
     typealias RUITimerProxyTargets = [String: RUITimerProxyTarget]
     
     class RUITimerProxyTarget : RUIProxyTarget {
-        var action: NSTimer -> ()
-        
-        init(action: NSTimer -> ()) {
+        var action: (Timer) -> ()
+
+        init(action: @escaping (Timer) -> ()) {
             self.action = action
         }
-        
-        func performAction(control: NSTimer) {
+
+        func performAction(_ control: Timer) {
             action(control)
         }
     }
@@ -52,7 +50,7 @@ internal extension NSTimer {
         }
     }
     
-    private func setProxyTargets(newValue: RUITimerProxyTarget) -> RUITimerProxyTarget {
+    private func setProxyTargets(_ newValue: RUITimerProxyTarget) -> RUITimerProxyTarget {
         objc_setAssociatedObject(self, &RUIProxyTargetsKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         return newValue
     }
